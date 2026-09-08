@@ -68,4 +68,4 @@ The module targets BDVM Web API 1.0. Authentication, authorization and host auth
 
 ## License
 
-BDVM code is licensed under the Apache License, Version 2.0. See [LICENSE](LICENSE). Incorporated MIT-licensed upstream code remains subject to its original notice.
+BDVM code is licensed under the Apache License, Version 2.0. See [LICENSE](LICENSE) and the applied copyright [NOTICE](NOTICE). Incorporated MIT-licensed upstream code remains subject to its original notice.
