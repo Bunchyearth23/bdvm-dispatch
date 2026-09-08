@@ -17,9 +17,9 @@ This repository is not Remote Dispatch itself and is not a web server. The upstr
 ## Responsibilities
 
 - Register the Dispatch navigation entry, frontend asset and realtime topic.
-- Expose `GET /api/modules/bdvm.dispatch/snapshot` behind `dispatch.read`.
-- Expose `POST /api/modules/bdvm.dispatch/intent` behind `dispatch.control`.
-- Publish the `bdvm.dispatch.network-view.v1` capability.
+- Expose map, trains, tracks, junctions, signals and occupations as separate read surfaces behind `dispatch.read`.
+- Expose junction and route-control intents behind separate permissions.
+- Publish network-view, route-control and realtime capabilities.
 - Bind authenticated snapshot readers and intent handlers to the Remote Dispatch transport.
 - Reject unauthenticated or unbound control requests instead of mutating the world locally.
 
@@ -29,7 +29,7 @@ This repository is not Remote Dispatch itself and is not a web server. The upstr
 
 ## Boundaries
 
-Dispatch displays authoritative state and forwards user intent. It does not calculate company finances, own trains, set signals directly or make clients authoritative. Without the compatible transport, the module contracts can build and register, but the current browser map and Remote Dispatch routes are unavailable.
+Dispatch displays authoritative state and forwards user intent. It does not calculate company finances, own trains, set signals directly or make clients authoritative. The frontend source contains no wallet, company, market, lease or ownership path. Without the compatible transport, the module contracts and package remain valid but live data and controls are offline.
 
 ## Dependencies
 
@@ -43,13 +43,15 @@ With Common checked out beside this repository under `src/`:
 
 ```powershell
 dotnet build .\BDVM.Dispatch.csproj -c Release
+node --test .\tests\dispatch.test.cjs
+.\Package.ps1
 ```
 
 Build `BDVM.Full` to compile the current Remote Dispatch adapter. Building that adapter also requires the compatible fork and its game dependencies.
 
 ## Testing and installation
 
-The BDVM web tests validate route isolation, permissions and registration. The Remote Dispatch fork retains its own test suite. No standalone package is published yet; use matching builds of `BDVM.Full` and the Remote Dispatch fork for integration testing.
+The frontend tests verify inert labels, the five physical-network layers and absence of Management authority. The shared Web tests validate route isolation, permissions and registration. `Package.ps1` produces an independent archive containing this module only; runtime still requires Web and the compatible transport.
 
 ## Upstream and provenance
 
