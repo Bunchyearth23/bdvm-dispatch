@@ -9,7 +9,7 @@
 | Module kind | Web feature and integration adapter |
 | Target framework | .NET Framework 4.8 (`net48`) |
 | Build dependency | `BDVM.Common` |
-| Runtime dependencies | `BDVM.Web`, compatible Remote Dispatch fork |
+| Runtime dependencies | `BDVM.Web`, `RemoteDispatchLive` from the compatible BDVM fork |
 | Standalone | No |
 
 This repository is not Remote Dispatch itself and is not a web server. The upstream mod is not bundled.
@@ -35,7 +35,7 @@ Dispatch displays authoritative state and forwards user intent. It does not calc
 
 - Build: `BDVM.Common`.
 - Runtime platform: a compatible `BDVM.Web` host.
-- Current HTTP/browser transport: [Bunchyearth23/dv-remote-dispatch](https://github.com/Bunchyearth23/dv-remote-dispatch), branch `bdvm-integration`.
+- Current HTTP/browser transport: `RemoteDispatchLive` from [Bunchyearth23/dv-remote-dispatch](https://github.com/Bunchyearth23/dv-remote-dispatch), branch `bdvm-integration`.
 
 ## Build
 
