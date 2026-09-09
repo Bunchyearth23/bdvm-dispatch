@@ -8,7 +8,7 @@ public sealed class DispatchWebModule : IBdvmWebModule
     {
         Id = "BDVM.Dispatch",
         DisplayName = "BDVM - Dispatch",
-        ModuleVersion = "1.1.0",
+        ModuleVersion = "1.1.1",
         RequiredWebApi = new BdvmApiRange(new BdvmApiVersion(1, 0), new BdvmApiVersion(1, 0)),
         RouteNamespace = "/api/modules/bdvm.dispatch",
         AssetNamespace = "modules/bdvm.dispatch",

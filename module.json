@@ -1,1 +1,1 @@
-{"id":"BDVM.Dispatch","version":"1.1.0","kind":"web-feature","standalone":false,"dependencies":["BDVM.Common"],"runtimeDependencies":["BDVM.Web","RemoteDispatchLive"],"webApi":"1.0","authority":"intent-only","assets":["Assets/app.js","Assets/app.css"]}
+{"id":"BDVM.Dispatch","version":"1.1.1","kind":"web-feature","standalone":false,"dependencies":["BDVM.Common"],"runtimeDependencies":["BDVM.Web"],"optionalRuntimeDependencies":["RemoteDispatchLive"],"webApi":"1.0","authority":"intent-only","assets":["Assets/app.js","Assets/app.css"]}

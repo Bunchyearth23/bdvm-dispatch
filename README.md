@@ -1,6 +1,6 @@
 # BDVM - Dispatch
 
-`BDVM.Dispatch` adds dispatcher views and control intents to the BDVM web platform. Its current transport adapter connects those contracts to the BDVM fork of Remote Dispatch.
+`BDVM.Dispatch` adds a dedicated dispatcher interface and control intents to the BDVM web platform. It accepts any BDVM Web transport; the Remote Dispatch bridge is an optional compatibility adapter.
 
 ## Status
 
@@ -9,7 +9,8 @@
 | Module kind | Web feature and integration adapter |
 | Target framework | .NET Framework 4.8 (`net48`) |
 | Build dependency | `BDVM.Common` |
-| Runtime dependencies | `BDVM.Web`, `RemoteDispatchLive` from the compatible BDVM fork |
+| Runtime dependency | `BDVM.Web` |
+| Optional integration | Compatible `RemoteDispatchLive` BDVM fork |
 | Standalone | No |
 
 This repository is not Remote Dispatch itself and is not a web server. The upstream mod is not bundled.
@@ -20,7 +21,7 @@ This repository is not Remote Dispatch itself and is not a web server. The upstr
 - Expose map, trains, tracks, junctions, signals and occupations as separate read surfaces behind `dispatch.read`.
 - Expose junction and route-control intents behind separate permissions.
 - Publish network-view, route-control and realtime capabilities.
-- Bind authenticated snapshot readers and intent handlers to the Remote Dispatch transport.
+- Bind authenticated snapshot readers and intent handlers to a Web transport; optionally adapt Remote Dispatch.
 - Reject unauthenticated or unbound control requests instead of mutating the world locally.
 
 ## Key surfaces
@@ -35,7 +36,8 @@ Dispatch displays authoritative state and forwards user intent. It does not calc
 
 - Build: `BDVM.Common`.
 - Runtime platform: a compatible `BDVM.Web` host.
-- Current HTTP/browser transport: `RemoteDispatchLive` from [Bunchyearth23/dv-remote-dispatch](https://github.com/Bunchyearth23/dv-remote-dispatch), branch `bdvm-integration`.
+- Runtime transport: any host implementation of the BDVM Web transport/session contract.
+- Optional compatibility adapter: `RemoteDispatchLive` from [Bunchyearth23/dv-remote-dispatch](https://github.com/Bunchyearth23/dv-remote-dispatch), branch `bdvm-integration`.
 
 ## Build
 
@@ -64,7 +66,7 @@ Any incorporated upstream code must retain its copyright and MIT notice.
 
 ## Compatibility
 
-The module targets BDVM Web API 1.0. Authentication, authorization and host authority are mandatory for control intents. A future standalone BDVM Web transport may replace Remote Dispatch without changing the Dispatch feature contract.
+The module targets BDVM Web API 1.0. Authentication, authorization and host authority are mandatory for control intents. Native and Remote Dispatch transports are interchangeable without changing the Dispatch feature contract.
 
 ## License
 
